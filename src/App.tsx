@@ -1,19 +1,29 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Card from './lib/Card';
+import CardDeck from './lib/CardDeck';
+import './cards.css';
+import PlayCard from './components/PlayCard.tsx';
 
-const App = () => {
-  const [count, setCount] = useState(0);
+const App: React.FC = () => {
+    const [cards, setCards] = useState<Card[]>([]);
 
-  return (
-      <>
-         <span className="card rank-k diams">
-            <span className="rank">K</span>
-            <span className="suit">♦</span>
-        </span>
-      </>
-  );
+    const giveCards = () => {
+        const deck = new CardDeck();
+        setCards(deck.getCards(5));
+    };
+
+    return (
+        <div>
+            <button onClick={giveCards}>Раздать карты</button>
+            {cards.length > 0 && (
+                <div className="playingCards faceImages">
+                    {cards.map((card, index) => (
+                        <PlayCard key={index} rank={card.rank} suit={card.suit} />
+                    ))}
+                </div>
+            )}
+        </div>
+    );
 };
 
 export default App;
