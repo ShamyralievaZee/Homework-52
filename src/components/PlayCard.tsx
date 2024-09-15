@@ -12,7 +12,7 @@ const suitSymbols: { [key: string]: string } = {
     spades: '♠',
 };
 
-const Card: React.FC<CardProps> = ({ rank, suit }) => {
+const PlayCard: React.FC<CardProps> = ({ rank, suit }) => {
     return (
         <span className={`card rank-${rank} ${suit}`}>
       <span className="rank">{rank}</span>
@@ -21,4 +21,4 @@ const Card: React.FC<CardProps> = ({ rank, suit }) => {
     );
 };
 
-export default Card;
+export default PlayCard;
