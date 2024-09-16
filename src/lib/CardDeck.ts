@@ -16,11 +16,25 @@ export default class CardDeck {
         }
     }
 
-    getCard(): Card {
+    getCard(): Card | null {
+        if (this.deck.length === 0) return null;
         return this.deck.splice(Math.floor(Math.random() * this.deck.length), 1)[0];
     }
 
     getCards(howMany: number): Card[] {
-        return Array.from({ length: howMany }, () => this.getCard());
+        const cards = [];
+        for (let i = 0; i < howMany; i++) {
+            const card = this.getCard();
+            if (card) {
+                cards.push(card);
+            } else {
+                break;
+            }
+        }
+        return cards;
+    }
+
+    hasCards(): boolean {
+        return this.deck.length > 0;
     }
 }
