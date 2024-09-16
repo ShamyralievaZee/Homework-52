@@ -33,7 +33,7 @@ const App: React.FC = () => {
             {deck && deck.hasCards() ? (
                 <button onClick={dealCards} className='giveButton'>Раздать карты</button>
             ) : (
-                <p>Не осталось кард в калоде</p>
+                <p>Не осталось кард в колоде</p>
             )}
             {cards.length > 0 && (
                 <div>
