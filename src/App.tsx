@@ -3,7 +3,7 @@ import Card from './lib/Card';
 import CardDeck from './lib/CardDeck';
 import './cards.css';
 import PlayCard from './components/PlayCard.tsx';
-import PokerHand     from "./lib/PokerHand.ts";
+import PokerHand from "./lib/PokerHand.ts";
 
 const App: React.FC = () => {
     const [cards, setCards] = useState<Card[]>([]);
@@ -18,14 +18,13 @@ const App: React.FC = () => {
             const pokerHand = new PokerHand(newCards);
             setHandOutcome(pokerHand.getOutcome());
 
-            // Update deck state to reflect changes
             setDeck(deck.hasCards() ? deck : null);
         }
     };
 
     useEffect(() => {
         if (deck && !deck.hasCards()) {
-            setDeck(null); // No more cards available
+            setDeck(null);
         }
     }, [deck]);
 
