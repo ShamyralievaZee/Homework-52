@@ -3,7 +3,7 @@ import Card from './lib/Card';
 import CardDeck from './lib/CardDeck';
 import './cards.css';
 import PlayCard from './components/PlayCard.tsx';
-import PokerHand from "./lib/PokerHand.ts";
+import PokerHand from './lib/PokerHand.ts';
 
 const App: React.FC = () => {
     const [cards, setCards] = useState<Card[]>([]);
